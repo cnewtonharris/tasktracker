@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:tasktracker/homepage.dart';
+import 'package:tasktracker/objectbox.dart';
 import 'package:tasktracker/task_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+late ObjectBox objectBox;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  objectBox = await ObjectBox.create();
+
   runApp(
     ChangeNotifierProvider(
       create: (context) => TaskProvider(),
