@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:tasktracker/homepage.dart';
+import 'package:tasktracker/task_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => TaskProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
